@@ -27,20 +27,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    function isColliding(element1, element2) {
-        const rect1 = element1.getBoundingClientRect();
-        const rect2 = element2.getBoundingClientRect();
+function isColliding(element1, element2) {
+    const rect1 = element1.getBoundingClientRect();
+    const rect2 = element2.getBoundingClientRect();
 
-        return !(rect1.right < rect2.left ||
-                 rect1.left > rect2.right ||
-                 rect1.bottom < rect2.top ||
-                 rect1.top > rect2.bottom);
-    }
+    console.log("Rect1:", rect1);
+    console.log("Rect2:", rect2);
 
-    function resetStar() {
-        star.style.top = Math.floor(Math.random() * 360) + "px";
-        star.style.left = Math.floor(Math.random() * 360) + "px";
-    }
+    // Your collision detection logic here
+    // ...
+
+    return !(rect1.right < rect2.left ||
+             rect1.left > rect2.right ||
+             rect1.bottom < rect2.top ||
+             rect1.top > rect2.bottom);
+}
+function resetStar() {
+    const randomTop = Math.floor(Math.random() * 360);
+    const randomLeft = Math.floor(Math.random() * 360);
+    console.log("Star position:", randomTop, randomLeft);
+
+    star.style.top = randomTop + "px";
+    star.style.left = randomLeft + "px";
+}
+
 
     function resetGame() {
         score = 0;
